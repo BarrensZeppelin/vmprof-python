@@ -504,6 +504,9 @@ class TraceForest(object):
                 saved_lines = self.source_lines[file]
                 for int_range in iter_ranges(lines):
                     for r in int_range:
+                        if r > len(split_lines):
+                            print("oops", r, len(split_lines))
+                            continue
                         line = split_lines[r-1]
                         data = line.lstrip()
                         diff = len(line) - len(data)
